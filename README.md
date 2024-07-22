@@ -1,2 +1,2 @@
-# python-cards
-A card game for a hobbyist's project.
+# python-game
+Python Game! Yay! It runs in a terminal too!
