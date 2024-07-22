@@ -1,18 +1,125 @@
 import time
 import math
 import random
+import climage
+import random
 
 
 #VARIABLES
 
+
+textColouring = "\033[32m"
 sPATTACK = 0        #Amount of sP applied in ATK
 spDEFENCE = 0       #Amount of sP applied in DEF
 sPSPEED = 0         #Amount of sP applied in SPD
 sPINTELLIGENCE = 0  #Amount of sP applied in INT
 sPHP = 0            #Amount of sP applied in HP
-playMode = "x"
+playMode = ""
+
+
+#SCREENS
+
+
+def screenPrintLoading():
+    global sleepTime
+    sleepTime = 0.0005
+    slowText(f"{textColouring}")
+    bar_format = '│{bar:125}│'
+    slowText("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                            ╚   ╝                                                                     │\n")
+    slowText("│                                             ╔═╗  ║ ║  ╔╦╗  ║ ║  ╔═╗  ╔╗║                                             │\n")
+    slowText("│                                             ║ ║  ║ ║   ║   ╠═╣  ║ ║  ║║║                                             │\n")
+    slowText("│                                             ╠═╝  ╚╦╝   ║   ╠═╣  ║ ║  ║║║                                             │\n")
+    slowText("│                                             ║     ║    ║   ║ ║  ╚═╝  ║╚╝                                             │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                  ╔═╗  ╔═╗  ╔╦╗  ╔══                                                  │\n")
+    slowText("│                                                  ║    ║ ║  ║║║  ║                                                    │\n")
+    slowText("│                                                  ║╔╗  ╠═╣  ║║║  ╠══                                                  │\n")
+    slowText("│                                                  ╚═╝  ║ ║  ║║║  ╚══                                                  │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                             ")
+    sleepTime = random.uniform(0.5, 0.005)
+    slowText("[••-------========-------••]")
+    sleepTime = 0.0005
+    slowText("                                             │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘")
+    time.sleep(5)
+    print("")
+    screenPrintMenu()
+
+def screenPrintMenu():
+    global sleepTime
+    sleepTime = 0.0005
+    slowText("┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                            ╚   ╝                                                                     │\n")
+    slowText("│                                             ╔═╗  ║ ║  ╔╦╗  ║ ║  ╔═╗  ╔╗║                                             │\n")
+    slowText("│                                             ║ ║  ║ ║   ║   ╠═╣  ║ ║  ║║║                                             │\n")
+    slowText("│                                             ╠═╝  ╚╦╝   ║   ╠═╣  ║ ║  ║║║                                             │\n")
+    slowText("│                                             ║     ║    ║   ║ ║  ╚═╝  ║╚╝                                             │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                  ╔═╗  ╔═╗  ╔╦╗  ╔══                                                  │\n")
+    slowText("│                                                  ║    ║ ║  ║║║  ║                                                    │\n")
+    slowText("│                                                  ║╔╗  ╠═╣  ║║║  ╠══                                                  │\n")
+    slowText("│                                                  ╚═╝  ║ ║  ║║║  ╚══                                                  │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                      𝙿 𝚁 𝙴 𝚂 𝚂                                                       │\n")
+    slowText("│                                                      𝙴 𝙽 𝚃 𝙴 𝚁                                                       │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("│                                                                                                                      │\n")
+    slowText("└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘")
+    enterJoin = input("")
+    if enterJoin == "":
+        menu()
+        
+
+
 
 #FUNCTIONS
+
+
+def levelCheck():
+    global xpChecker
+    for xpChecker in range(len(ClassData)):
+        if ClassData[xpChecker][6] >= ClassData[xpChecker][7]:
+            sPASSIGNMENT()
+            ClassData[xpChecker][6] -= ClassData[xpChecker][7]
+            ClassData[xpChecker][7] *= 1.2
+            ClassData[xpChecker][8] += 1
+            ClassData[xpChecker][9] += 1
+    attributeOutPut()
+
+def commandList():
+    global sleepTime
+    slowText("cmd - Lists the commands in the game.")
+    slowText("prf - Shows your user profile. (BETA)")
+    slowText("")
 
 def sPASSIGNMENT():
     global sPATTACK
@@ -43,7 +150,6 @@ def sPASSIGNMENT():
             print("It will be cancelled. Try with the command.")
     else:
         print("It will be cancelled. Try with the command.")
-    #return sPATTACK, spDEFENCE, sPSPEED, sPINTELLIGENCE, sPHP
 
 def attributeOutPut():
     print("ATK: " + str(sPATTACK))
@@ -51,9 +157,6 @@ def attributeOutPut():
     print("SPD: " + str(sPSPEED))
     print("INT: " + str(sPINTELLIGENCE))
     print("HP: " + str(sPHP))
-
-def userStatsOutPut():
-    print("HP: " + str(sPATTACK))
 
 def slowText(text):
     global sleepTime
@@ -106,8 +209,8 @@ def menu():
             savefileName = input("We will be creating one for you. Name your save: ")
             with open(savefileName, "xt") as savefile:
                 classSelection()
-                for j in range(0, 9):
-                    savefile.write(f"{ClassData[0][j]}\n")
+                for writeLoop in range(0, 9):
+                    savefile.write(f"{ClassData[0][writeLoop]}\n")
     elif playMode == "multiplayer":
         slowText("On BETA phase. Please try again after the next update. Thank you!\n")
         menu()
@@ -164,23 +267,15 @@ BossData = [
                 [25, 15, 88, 55, 75],  #Poseidon
                 #Attack, Defence, Speed, XP Drop, Health
 ]
-#TEST
-#x = int(input("Input a value to add to the XP: "))
-#ClassData[0][5] += x
-#TESTEND
 sleepTime = 0.1
-slowText("Loading..............\n")
-slowText("Patching up resources.......\n")
-slowText("Booting v1.0.1...........\n")
-menu()
-#TEST
-#i = 0
-#for i in range(len(ClassData)):
-#    if ClassData[i][5] >= ClassData[i][6]:
-#        sPASSIGNMENT()
-#        ClassData[i][5] -= ClassData[i][6]
-#        ClassData[i][6] *= 1.2
-#        ClassData[i][7] += 1
-#        ClassData[i][8] += 1
-#attributeOutPut()
-#TESTEND
+screenPrintLoading()
+
+
+#slowText("Loading..............\n")
+#slowText("Patching up resources.......\n")
+#slowText("Booting v1.0.1...........\n")
+#menu()
+
+if input == "cmds":
+    #screenPrintMenu()
+    commandList()
